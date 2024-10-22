@@ -18,7 +18,8 @@ public class QuestManager : MonoBehaviour
             }
             if (instance == null)
             {
-                instance = new GameObject().AddComponent<QuestManager>();// 나도 멀 한건지 모르겠다
+                instance = new GameObject().AddComponent<QuestManager>();
+                // 나도 멀 한건지 모르겠다
             }
                 return instance;
         }
@@ -27,9 +28,12 @@ public class QuestManager : MonoBehaviour
     // [구현사항 3] 인스턴스 검사 로직
     private void Awake()
     {
-        if(instance != null)
+        if(instance != null && instance != this)
         {
-            instance = this;
+            Destroy(gameObject);
+            return;
         }
+        instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 }
