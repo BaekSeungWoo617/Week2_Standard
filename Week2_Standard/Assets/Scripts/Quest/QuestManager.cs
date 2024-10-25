@@ -19,7 +19,7 @@ public class QuestManager : MonoBehaviour
             if (instance == null)
             {
                 instance = new GameObject().AddComponent<QuestManager>();
-                // 나도 멀 한건지 모르겠다
+                
             }
                 return instance;
         }
